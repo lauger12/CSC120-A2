@@ -1,11 +1,9 @@
 from typing import Optional
 from computer import * 
 
-#buy, sell, print_inventory, refurbish
-
-
+# create class ResaleShop for all resale shops (this project will only have one store)
 class ResaleShop:
-#constructor    
+    # constructor for ResaleShop class
     def __init__(self):
         self.inventory = [] #create inventory as a list  
         
@@ -15,12 +13,12 @@ class ResaleShop:
     def get_description(self, computer):
       return computer.description
     
-    #buy function
+    # buy function, adds computer to inventory
     def buy(self, computer):
       self.inventory.append(computer) #call inventory append to add the new Computer instance to inventory
       print("Buying", computer.description + "...")
 
-    #sell function, removes computer from inventory
+    # sell function, removes computer from inventory
     def sell(self, computer:Computer):
         if computer in self.inventory:
             print("Selling", computer.description + "...")
@@ -29,8 +27,7 @@ class ResaleShop:
         else: 
             print("Item", computer.description, "not found. Please select another item to sell.")
     
-    #function to print the current inventory
-    # def __str__(self):
+    # function to print the current inventory
     def print_inventory(self):
         if self.inventory:  
             for comp in self.inventory:
@@ -39,7 +36,7 @@ class ResaleShop:
             print("No inventory to display.")
     
 
-    #code for refursbishing, updates price based on year and updates OS if the computer's OS not the most recent OS (new_OS)
+    # code for refursbishing, updates price based on year and updates OS if the computer's OS not the most recent OS (new_OS)
     def refurbish(self, new_os:Optional[str] = None):
         new_os = "MacOS Monterey" 
         for comp in self.inventory:
